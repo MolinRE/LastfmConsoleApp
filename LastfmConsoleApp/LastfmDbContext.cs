@@ -20,6 +20,9 @@ public class LastfmDbContext : DbContext
         modelBuilder.Entity<LastAlbumDto>()
             .Property(p => p.ReleaseDate)
             .HasColumnType("date");
+        modelBuilder.Entity<LastAlbumDto>()
+            .Property(p => p.Url)
+            .IsRequired(false);
 
         modelBuilder.Entity<LastTrackDto>()
             .Property(p => p.ArtistMbid)
@@ -66,7 +69,7 @@ public class LastAlbumDto
 
     public string ArtistName { get; set; }
 
-    public DateTime ReleaseDate { get; set; }
+    public DateTime? ReleaseDate { get; set; }
 
     public int? Year { get; set; }
 
